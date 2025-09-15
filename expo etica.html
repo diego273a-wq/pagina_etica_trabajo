@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ética, Trabajo y Profesión – Carrusel Dorado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #000000;
+      --card-bg: #111111;
+      --gold: #d4af37;
+      --gold-glow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+      --text: #ffffff;
+      --subtle: #cccccc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: var(--gold-glow);
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--subtle);
+    }
+
+    main {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .card {
+      flex: 0 0 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 15px var(--gold);
+    }
+
+    .card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      color: var(--gold);
+      text-shadow: 0 0 5px var(--gold);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 25px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: #000;
+      box-shadow: var(--gold-glow);
+    }
+
+    #consejo {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-style: italic;
+      text-shadow: 0 0 5px var(--gold);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #consejo.show {
+      opacity: 1;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold);
+      animation: twinkle 1.5s infinite;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: var(--subtle);
+      text-shadow: 0 0 5px var(--gold);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Zonas sensibles al mouse */
+    .hover-zone {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 30%;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .hover-zone.left {
+      left: 0;
+    }
+
+    .hover-zone.right {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero">
+      <h1><i class="fas fa-balance-scale"></i> Ética, Trabajo y Profesión</h1>
+      <p>Descubre cómo la ética transforma tu vida profesional</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="track">
+        <!-- Tarjeta 0 -->
+        <div class="card">
+          <h2><i class="fas fa-lightbulb"></i> Importancia de la ética en el trabajo</h2>
+          <ul>
+            <li>Establece credibilidad y confianza</li>
+            <li>Guía decisiones justas</li>
+            <li>Fomenta un ambiente laboral positivo</li>
+            <li>Asegura cumplimiento de normas legales</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 1 -->
+        <div class="card">
+          <h2><i class="fas fa-brain"></i> La creencia crea la realidad</h2>
+          <p>Tus creencias y valores moldean tus acciones y resultados profesionales.</p>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="card">
+          <h2><i class="fas fa-user-tie"></i> Ejemplo: Arturo</h2>
+          <p>Arturo eligió la honestidad frente a una situación ética. Ganó confianza y reputación a largo plazo.</p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card">
+          <h2><i class="fas fa-question-circle"></i> ¿Para qué sirve la ética?</h2>
+          <ul>
+            <li>Distingue entre lo correcto e incorrecto</li>
+            <li>Promueve el bien común</li>
+            <li>Guía decisiones responsables</li>
+            <li>Construye sociedad justa</li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="card" style="position:relative;">
+          <h2><i class="fas fa-heart"></i> No trabajes solo por dinero</h2>
+          <p>Busca un propósito que una pasión, valores y contribución social. El dinero será consecuencia.</p>
+          <a href="#" class="btn" onclick="mostrarRuleta(); return false;">Descubre tu propósito</a>
+          <div class="stars" id="stars"></div>
+          <p id="consejo"></p>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="card">
+          <h2><i class="fas fa-handshake"></i> Cumple tu palabra</h2>
+          <p>Los compromisos deben honrarse. Incumplir daña la confianza y tu reputación profesional.</p>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="card">
+          <h2><i class="fas fa-chart-line"></i> El trabajo como autorrealización</h2>
+          <p>El trabajo puede desarrollar tus talentos, darte sentido y contribuir a la sociedad. ¡Llévalo al siguiente nivel!</p>
+        </div>
+      </div>
+
+      <!-- Zonas sensibles al mouse -->
+      <div class="hover-zone left" onmouseenter="mover(-1)"></div>
+      <div class="hover-zone right" onmouseenter="mover(1)"></div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 SENATI - Desarrollo Humano - Diego Díaz
+  </footer>
+
+  <script>
+    const frases = [
+      "Tu propósito no es un destino, es una dirección.",
+      "Si ayudas a otros a ganar, tú ya ganaste.",
+      "Trabaja desde tu talento, no desde tu miedo.",
+      "El dinero sigue al impacto, no al esfuerzo.",
+      "Si pierdes la noción del tiempo haciéndolo, eso es.",
+      "La ética es tu firma en cada acción.",
+      "Construye tu legado con principios, no con excusas.",
+      "Ser leal a tus valores atrae oportunidades reales.",
+      "Tu palabra dorada vale más que cualquier contrato.",
+      "El éxito sin integridad es un castillo de arena."
+    ];
+
+    let indice = 0;
+    let intervalo;
+
+    function mostrarRuleta() {
+      const consejo = document.getElementById('consejo');
+      const stars = document.getElementById('stars');
+      consejo.textContent = "";
+      consejo.classList.remove('show');
+      stars.innerHTML = '';
+      for (let i = 0; i < 30; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 1.5 + 's';
+        stars.appendChild(star);
+      }
+      intervalo = setInterval(() => {
+        consejo.textContent = frases[indice];
+        indice = (indice + 1) % frases.length;
+      }, 500);
+      setTimeout(() => {
+        clearInterval(intervalo);
+        consejo.classList.add('show');
+      }, 4000);
+    }
+
+    let pos = 0;
+    const track = document.getElementById('track');
+    const total = track.children.length;
+
+    function mover(direccion) {
+      pos += direccion;
+      if (pos < 0) pos = total - 1;
+      if (pos >= total) pos = 0;
+      track.style.transform = `translateX(-${pos * 100}%)`;
+    }
+  </script>
+
+</body>
+</html>
