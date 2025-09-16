@@ -102,7 +102,7 @@
   <!-- Pantalla de inicio -->
   <div id="pantalla-inicio" style="text-align: center;">
     <p style="color: var(--subtle); margin-bottom: 20px;">
-      3 situaciones, 3 decisiones. ¿Lograrás la Insignia Dorada de Integridad?
+      10 situaciones, 10 decisiones. ¿Lograrás la Insignia Dorada de Integridad?
     </p>
     <button class="btn" onclick="iniciarJuego()">Comenzar</button>
   </div>
@@ -152,6 +152,83 @@
       feedback: {
         "1": "❌ El cliente se jactó en redes y la empresa recibió una denuncia.",
         "1": "✅ Tu jefe te felicitó por mantener la equidad y confianza."
+      }
+    },
+    {
+      texto: "Si un amigo te pide que ocultes un error, ¿qué harías?",
+      opciones: [
+        { texto: "🤝 Acceder, es mi amigo.", valor: -1 },
+        { texto: "🗣️ Hablar con él sobre la ética.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ El error salió a la luz y afectó a todos.",
+        "1": "✅ Tu amigo te agradeció por ser honesto."
+      }
+    },
+    {
+      texto: "Si te ofrecen un ascenso a cambio de comprometer tus valores, ¿qué harías?",
+      opciones: [
+        { texto: "🏆 Aceptar el ascenso.", valor: -1 },
+        { texto: "🚷 Rechazar la oferta.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ Perdiste la confianza de tus colegas.",
+        "1": "✅ Tu integridad te abrió otras oportunidades."
+      }
+    },
+    {
+      texto: "Un cliente te pide que hagas algo poco ético para cerrar una venta.",
+      opciones: [
+        { texto: "💰 Acepto, es solo un negocio.", valor: -1 },
+        { texto: "🚫 No, prefiero perder la venta.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ La empresa se metió en problemas legales.",
+        "1": "✅ Tu ética profesional fue reconocida."
+      }
+    },
+    {
+      texto: "Si ves a un compañero robando, ¿qué harías?",
+      opciones: [
+        { texto: "👁️ Ignorar, no es mi problema.", valor: -1 },
+        { texto: "🚨 Reportar la situación.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ El problema se agravó y afectó a todos.",
+        "1": "✅ Hiciste lo correcto y ayudaste a la empresa."
+      }
+    },
+    {
+      texto: "Si encuentras información confidencial en tu computadora, ¿qué harías?",
+      opciones: [
+        { texto: "🤫 Ignorar y seguir trabajando.", valor: -1 },
+        { texto: "🔒 Reportar el hallazgo.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ La información fue mal utilizada.",
+        "1": "✅ Tu acción evitó un gran problema."
+      }
+    },
+    {
+      texto: "¿Es correcto mentir para proteger los sentimientos de alguien?",
+      opciones: [
+        { texto: "🤷‍♂️ Sí, a veces es necesario.", valor: -1 },
+        { texto: "🗣️ No, siempre hay que ser honesto.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ La verdad salió a la luz y dañó la relación.",
+        "1": "✅ La honestidad fortaleció la confianza."
+      }
+    },
+    {
+      texto: "Si un cliente te ofrece un soborno, ¿qué harías?",
+      opciones: [
+        { texto: "💵 Aceptar el soborno, nadie se entera.", valor: -1 },
+        { texto: "🚫 Rechazarlo, es poco ético.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ Te atraparon y enfrentaste consecuencias.",
+        "1": "✅ Mantuviste tu integridad profesional."
       }
     }
   ];
@@ -209,7 +286,7 @@
     } else {
       setTimeout(() => {
         mostrarResultado();
-        if (puntaje === 3) localStorage.setItem("insigniaEtica", "true");
+        if (puntaje === 10) localStorage.setItem("insigniaEtica", "true");
       }, 1500);
     }
     chat.scrollTop = chat.scrollHeight;
@@ -218,15 +295,20 @@
   function mostrarResultado() {
     document.getElementById("chat").style.display = "none";
     document.getElementById("resultado").style.display = "block";
-    const msg = puntaje === 3
-      ? "🎉 ¡Insignia Dorada de Integridad obtenida!"
-      : puntaje === 1
-      ? "💡 Buen camino, pero podés mejorar."
-      : "⚠️ Reflexioná sobre tus decisiones.";
-    document.getElementById("mensaje-final").innerText = msg;
-    if (puntaje === 3) {
+    
+    const porcentaje = (puntaje / situaciones.length) * 100;
+    let msg = `Eres ${porcentaje.toFixed(2)}% ético. `;
+
+    if (puntaje < 3) {
+      msg += "⚠️ Reflexioná sobre tus decisiones.";
+    } else if (puntaje < 7) {
+      msg += "💡 Buen camino, pero podés mejorar.";
+    } else {
+      msg += "🎉 ¡Insignia Dorada de Integridad obtenida!";
       document.getElementById("insignia-final").style.display = "inline-block";
     }
+
+    document.getElementById("mensaje-final").innerText = msg;
   }
   </script>
 
