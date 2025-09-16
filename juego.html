@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Qué harías tú? - Juego Ético</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #000000;
+      --gold: #d4af37;
+      --text: #ffffff;
+      --subtle: #cccccc;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #chat {
+      background: #111;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 25px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: #000;
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    .btn-opcion {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-opcion:hover {
+      transform: scale(1.05);
+    }
+
+    #resultado {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #insignia-final {
+      font-size: 4rem;
+      color: var(--gold);
+      margin-top: 20px;
+      display: none;
+    }
+
+    .volver {
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>🎮 ¿Qué harías tú?</h2>
+
+  <!-- Pantalla de inicio -->
+  <div id="pantalla-inicio" style="text-align: center;">
+    <p style="color: var(--subtle); margin-bottom: 20px;">
+      3 situaciones, 3 decisiones. ¿Lograrás la Insignia Dorada de Integridad?
+    </p>
+    <button class="btn" onclick="iniciarJuego()">Comenzar</button>
+  </div>
+
+  <!-- Chat del juego -->
+  <div id="chat" style="display: none;"></div>
+
+  <!-- Resultado final -->
+  <div id="resultado" style="display: none;">
+    <div id="mensaje-final" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></div>
+    <div id="insignia-final">🏅</div>
+    <div class="volver">
+      <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+  </div>
+
+  <script>
+  const situaciones = [
+    {
+      texto: "Tu jefe te dice: '📄 Firmá este informe, después lo revisamos.' Vos no lo leíste aún.",
+      opciones: [
+        { texto: "🤷‍♂️ Firmo, total es rápido.", valor: -1 },
+        { texto: "🧐 Prefiero leerlo antes, ¿te parece?", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ Al día siguiente saltó un error grave y todos vieron tu firma.",
+        "1": "✅ Tu jefe respetó tu prudencia y el informe salió impecable."
+      }
+    },
+    {
+      texto: "Un compañero te pasa su parte del trabajo y tiene copy-pego sin citar.",
+      opciones: [
+        { texto: "🙈 Ni me meto, no es mi problema.", valor: -1 },
+        { texto: "✍️ Le aviso para que lo cite antes de entregar.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ El detector de plagio lo descubrió y tu equipo quedó mal parado.",
+        "1": "✅ Tu compañero lo arregló a tiempo y agradeció tu aviso."
+      }
+    },
+    {
+      texto: "Te ofrecen un regalo caro si priorizás a cierto cliente antes que a los demás.",
+      opciones: [
+        { texto: "🎁 Acepto, nadie se va a enterar.", valor: -1 },
+        { texto: "🚫 Gracias, pero trabajo con igualdad para todos.", valor: +1 }
+      ],
+      feedback: {
+        "1": "❌ El cliente se jactó en redes y la empresa recibió una denuncia.",
+        "1": "✅ Tu jefe te felicitó por mantener la equidad y confianza."
+      }
+    }
+  ];
+
+  let paso = 0;
+  let puntaje = 0;
+
+  function iniciarJuego() {
+    document.getElementById("pantalla-inicio").style.display = "none";
+    document.getElementById("chat").style.display = "block";
+    mostrarSituacion();
+  }
+
+  function mostrarSituacion() {
+    const sit = situaciones[paso];
+    const chat = document.getElementById("chat");
+    chat.innerHTML += crearBurbuja(sit.texto, "sistema");
+
+    sit.opciones.forEach((op) => {
+      // FIX: Pasa el valor como una cadena de texto (string) directamente.
+      chat.innerHTML += crearBurbuja(`<button class="btn-opcion" onclick="elegir('${op.valor}')">${op.texto}</button>`, "opcion");
+    });
+
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function crearBurbuja(texto, tipo) {
+    const color = tipo === "sistema" ? "#d4af37" : "#fff";
+    const align = tipo === "sistema" ? "left" : "right";
+    return `
+      <div style="margin: 10px 0; text-align: ${align};">
+        <span style="background: ${tipo === "sistema" ? "#222" : "#d4af37"}; color: ${tipo === "sistema" ? color : "#000"}; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 70%;">
+          ${texto}
+        </span>
+      </div>
+    `;
+  }
+
+  function elegir(valor) {
+    const sit = situaciones[paso];
+    const chat = document.getElementById("chat");
+
+    // FIX: Ahora 'valor' ya es una cadena, no necesita conversión
+    const mensaje = sit.feedback[valor];
+
+    if (!mensaje) {
+      console.warn("⚠️ No existe feedback para la clave:", valor);
+      return;
+    }
+
+    chat.innerHTML += crearBurbuja(mensaje, "sistema");
+    puntaje += parseInt(valor); // Vuelve a convertir a número para sumar al puntaje
+    paso++;
+
+    if (paso < situaciones.length) {
+      setTimeout(mostrarSituacion, 1500);
+    } else {
+      setTimeout(() => {
+        mostrarResultado();
+        if (puntaje === 3) localStorage.setItem("insigniaEtica", "true");
+      }, 1500);
+    }
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function mostrarResultado() {
+    document.getElementById("chat").style.display = "none";
+    document.getElementById("resultado").style.display = "block";
+    const msg = puntaje === 3
+      ? "🎉 ¡Insignia Dorada de Integridad obtenida!"
+      : puntaje === 1
+      ? "💡 Buen camino, pero podés mejorar."
+      : "⚠️ Reflexioná sobre tus decisiones.";
+    document.getElementById("mensaje-final").innerText = msg;
+    if (puntaje === 3) {
+      document.getElementById("insignia-final").style.display = "inline-block";
+    }
+  }
+</script>
+
+</body>
+</html>
