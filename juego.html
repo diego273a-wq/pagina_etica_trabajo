@@ -171,8 +171,7 @@
     chat.innerHTML += crearBurbuja(sit.texto, "sistema");
 
     sit.opciones.forEach((op) => {
-      // FIX: Pasa el valor como una cadena de texto (string) directamente.
-      chat.innerHTML += crearBurbuja(`<button class="btn-opcion" onclick="elegir('${op.valor}')">${op.texto}</button>`, "opcion");
+      chat.innerHTML += crearBurbuja(`<button class="btn-opcion" onclick="elegir(${op.valor})">${op.texto}</button>`, "opcion");
     });
 
     chat.scrollTop = chat.scrollHeight;
@@ -194,7 +193,6 @@
     const sit = situaciones[paso];
     const chat = document.getElementById("chat");
 
-    // FIX: Ahora 'valor' ya es una cadena, no necesita conversión
     const mensaje = sit.feedback[valor];
 
     if (!mensaje) {
@@ -230,7 +228,7 @@
       document.getElementById("insignia-final").style.display = "inline-block";
     }
   }
-</script>
+  </script>
 
 </body>
 </html>
