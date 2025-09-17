@@ -254,17 +254,19 @@
     chat.scrollTop = chat.scrollHeight;
   }
 
-  function crearBurbuja(texto, tipo) {
-    const color = tipo === "sistema" ? "#d4af37" : "#fff";
+function crearBurbuja(texto, tipo) {
+    const color = tipo === "sistema" ? "#d4af37" : "#000";
     const align = tipo === "sistema" ? "left" : "right";
+    const bg = tipo === "sistema" ? "#222" : "#d4af37";
+    
     return `
-      <div style="margin: 10px 0; text-align: ${align};">
-        <span style="background: ${tipo === "sistema" ? "#222" : "#d4af37"}; color: ${tipo === "sistema" ? color : "#000"}; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 70%;">
+      <div class="chat-burbuja animated" style="margin: 10px 0; text-align: ${align};">
+        <span style="background: ${bg}; color: ${color}; padding: 10px 15px; border-radius: 18px; display: inline-block; max-width: 70%;">
           ${texto}
         </span>
       </div>
     `;
-  }
+}
 
   function elegir(valor) {
     const sit = situaciones[paso];
@@ -288,6 +290,20 @@
         mostrarResultado();
         if (puntaje === 10) localStorage.setItem("insigniaEtica", "true");
       }, 1500);
+    }
+        // Agrega una clase para animar la respuesta
+    chat.lastElementChild.classList.add('animated');
+
+    if (paso < situaciones.length) {
+        setTimeout(() => {
+            mostrarSituacion();
+            chat.scrollTop = chat.scrollHeight;
+        }, 1500); // 1.5 segundos de espera
+    } else {
+        setTimeout(() => {
+            mostrarResultado();
+            if (puntaje === 10) localStorage.setItem("insigniaEtica", "true");
+        }, 1500);
     }
     chat.scrollTop = chat.scrollHeight;
   }
