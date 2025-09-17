@@ -1,0 +1,269 @@
+        :root {
+            --bg: #000000;
+            --card-bg: #111111;
+            --gold: #d4af37;
+            --text: #ffffff;
+            --subtle: #cccccc;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    margin: 0;
+    overflow-x: hidden;
+}
+        
+        header {
+            height: 100vh;
+            background-attachment: fixed;
+            background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        header::before { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); }
+        .hero { position: relative; z-index: 2; animation: fadeIn 1.5s ease; }
+        .hero h1 { font-size: 3rem; font-weight: 900; color: var(--gold); text-shadow: 0 0 2px var(--gold); margin-bottom: 10px;animation: glowing 2s infinite alternate; }
+        .hero p { font-size: 1.2rem; color: var(--subtle); }
+
+        main { padding: 80px 20px; max-width: 1000px; margin: auto; }
+        .carousel-wrapper { position: relative; overflow: hidden; border-radius: 12px; }
+        .carousel-track { display: flex; transition: transform 0.6s ease; }
+        .card {
+    flex: 0 0 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 15px var(--gold);
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--gold); }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+        }
+        .btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 10px var(--gold); }
+        .btn:active { background: rgba(212, 175, 55, 0.5); }
+
+        .hover-zone { position: absolute; top: 0; height: 100%; width: 30%; z-index: 2; cursor: pointer; background: transparent; transition: background 0.3s ease; }
+        .hover-zone.left { left: 0; }
+        .hover-zone.right { right: 0;}
+            
+        footer { text-align: center; padding: 30px; font-size: 0.9rem; color: var(--subtle); text-shadow: 0 0 5px var(--gold);border-top: 1px solid rgba(212, 175, 55, 0.2);
+    margin-top: 50px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 600px) { .hero h1 { font-size: 2.5rem; } }
+
+        /* Estilo para la sección del juego */
+        #juego {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 40px; 
+            box-shadow: 0 0 15px var(--gold);
+            text-align: center; 
+        }
+
+        #juego h2 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        #definiciones {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-top: 40px;
+            margin-bottom: 60px; 
+            border-radius: 12px;
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        .definicion {
+            margin-bottom: 20px;
+            opacity: 0; /* Comienza invisible */
+        }
+
+        .definicion h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .definicion p {
+            color: var(--subtle);
+        }
+
+        section iframe {
+            margin-top: 20px; 
+        }
+        @keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animated {
+    animation: slideInUp 0.8s forwards;
+    animation-fill-mode: backwards;
+}
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 2px var(--gold);
+    }
+    50% {
+        text-shadow: 0 0 8px var(--gold), 0 0 10px var(--gold);
+    }
+    100% {
+        text-shadow: 0 0 0px var(--gold);
+    }
+}
+/* Animaciones para las secciones */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.definicion {
+    opacity: 0; /* Asegura que la animación original de las definiciones siga funcionando */
+    /* ... el resto del código de .definicion que ya tenías ... */
+}
+
+/* Nuevo estilo para animar las secciones al hacer scroll */
+.slide-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.slide-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Esto asegura que el texto se mantenga en el centro del header */
+.hero {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+    flex-direction: column; /* Apila el contenido (títulos) uno encima del otro */
+    padding: 50px 80px;
+    min-height: 100vh;
+}
+
+/* Contenedor del lanyard */
+.lanyard-container {
+    position: fixed;
+    top: 0;
+    right: 50px;
+    z-index: 1000;
+    width: 250px;
+    height: 450px;
+    transform: rotate(5deg);
+    transition: transform 0.3s ease-in-out; /* Mantiene la transición suave */
+}
+
+/* Este código se activa al pasar el mouse */
+.lanyard-container:hover {
+    animation: swing 2s ease-in-out infinite; /* Usa la nueva animación */
+}
+
+/* La cinta del lanyard */
+.lanyard-strap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 250px;
+    background: #444;
+    border-radius: 10px;
+}
+
+/* El gancho o conector */
+.lanyard-strap::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background: #aaa;
+    border: 2px solid #555;
+    border-radius: 50%;
+}
+
+/* La tarjeta de identificación */
+.lanyard-card {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 200px;
+    background: var(--card-bg);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+@keyframes swing {
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
