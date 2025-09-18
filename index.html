@@ -7,12 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-<!-- ==========  HEADER  ========== -->
-<body>
+<!-- ==========  HEADER  ========== -->
 <header>
     <div class="hero">
         <h1 id="titulo-principal"><i class="fas fa-balance-scale"></i> Ética, Trabajo y Profesión</h1>
@@ -28,7 +26,7 @@
     </div>
 </div>
 
-<!-- ==========  DEFINICIONES  ========== -->
+<!-- ==========  DEFINICIONES  ========== -->
 <section id="definiciones" class="slide-in-up">
     <h2>Definiciones Clave</h2>
     <div class="definicion">
@@ -48,74 +46,76 @@
 <!--===================VIDEO===================-->
 <section class="slide-in-up">
     <h2>Video sobre Ética en el Trabajo</h2>
-    <iframe width="100%" height="500" src="https://www.youtube.com/embed/W-N3-xpTfdE" frameborder="100" allowfullscreen></iframe>
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/W-N3-xpTfdE" allowfullscreen></iframe>
 </section>
-<!-- ==========  MAIN  ========== -->
+
+<!-- ==========  MAIN  ========== -->
 <main class="slide-in-up">
-<!-- Carrusel de contenidos -->
-<div class="carousel-wrapper">
-    <div class="carousel-track" id="track">
-        <!-- Tarjeta 0 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-lightbulb"></i> Importancia de la ética en el trabajo</h2>
-            <ul>
-                <li>Establece credibilidad y confianza</li>
-                <li>Guía decisiones justas</li>
-                <li>Fomenta un ambiente laboral positivo</li>
-                <li>Asegura cumplimiento de normas legales</li>
-            </ul>
+    <!-- Carrusel de contenidos -->
+    <div class="carousel-wrapper">
+        <div class="carousel-track" id="track">
+            <!-- Tarjeta 0 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-lightbulb"></i> Importancia de la ética en el trabajo</h2>
+                <ul>
+                    <li>Establece credibilidad y confianza</li>
+                    <li>Guía decisiones justas</li>
+                    <li>Fomenta un ambiente laboral positivo</li>
+                    <li>Asegura cumplimiento de normas legales</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 1 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-brain"></i> La creencia crea la realidad</h2>
+                <p>Tus creencias y valores moldean tus acciones y resultados profesionales.</p>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-user-tie"></i> Ejemplo: Arturo</h2>
+                <p>Arturo eligió la honestidad frente a una situación ética. Ganó confianza y reputación a largo plazo.</p>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-question-circle"></i> ¿Para qué sirve la ética?</h2>
+                <ul>
+                    <li>Distingue entre lo correcto e incorrecto</li>
+                    <li>Promueve el bien común</li>
+                    <li>Guía decisiones responsables</li>
+                    <li>Construye sociedad justa</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-heart"></i> No trabajes solo por dinero</h2>
+                <p>Busca un propósito que una pasión, valores y contribución social. El dinero será consecuencia.</p>
+                <button class="btn" onclick="mostrarFrase();">Descubre tu propósito</button>
+                <p id="consejo"></p>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-handshake"></i> Cumple tu palabra</h2>
+                <p>Los compromisos deben honrarse. Incumplir daña la confianza y tu reputación profesional.</p>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="card slide-in-up">
+                <h2><i class="fas fa-chart-line"></i> El trabajo como autorrealización</h2>
+                <p>El trabajo puede desarrollar tus talentos, darte sentido y contribuir a la sociedad. ¡Llévalo al siguiente nivel!</p>
+            </div>
         </div>
 
-        <!-- Tarjeta 1 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-brain"></i> La creencia crea la realidad</h2>
-            <p>Tus creencias y valores moldean tus acciones y resultados profesionales.</p>
-        </div>
-
-        <!-- Tarjeta 2 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-user-tie"></i> Ejemplo: Arturo</h2>
-            <p>Arturo eligió la honestidad frente a una situación ética. Ganó confianza y reputación a largo plazo.</p>
-        </div>
-
-        <!-- Tarjeta 3 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-question-circle"></i> ¿Para qué sirve la ética?</h2>
-            <ul>
-                <li>Distingue entre lo correcto e incorrecto</li>
-                <li>Promueve el bien común</li>
-                <li>Guía decisiones responsables</li>
-                <li>Construye sociedad justa</li>
-            </ul>
-        </div>
-
-        <!-- Tarjeta 4 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-heart"></i> No trabajes solo por dinero</h2>
-            <p>Busca un propósito que una pasión, valores y contribución social. El dinero será consecuencia.</p>
-            <a href="javascript:void(0);" class="btn" onclick="mostrarFrase();">Descubre tu propósito</a>
-            <p id="consejo"></p>
-        </div>
-
-        <!-- Tarjeta 5 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-handshake"></i> Cumple tu palabra</h2>
-            <p>Los compromisos deben honrarse. Incumplir daña la confianza y tu reputación profesional.</p>
-        </div>
-
-        <!-- Tarjeta 6 -->
-        <div class="card slide-in-up">
-            <h2><i class="fas fa-chart-line"></i> El trabajo como autorrealización</h2>
-            <p>El trabajo puede desarrollar tus talentos, darte sentido y contribuir a la sociedad. ¡Llévalo al siguiente nivel!</p>
-        </div>
+        <!-- Zonas sensibles al mouse (carrusel) -->
+        <div class="hover-zone left" onmouseenter="mover(-1)"></div>
+        <div class="hover-zone right" onmouseenter="mover(1)"></div>
     </div>
+</main>
 
-    <!-- Zonas sensibles al mouse (carrusel) -->
-    <div class="hover-zone left" onmouseenter="mover(-1)"></div>
-    <div class="hover-zone right" onmouseenter="mover(1)"></div>
-</div>
-
-<!-- ==========  SECCIÓN JUEGO  ========== -->
+<!-- ==========  SECCIÓN JUEGO  ========== -->
 <section id="juego" class="slide-in-up">
     <h2><i class="fas fa-gamepad"></i> Pon a prueba tu ética</h2>
     <p style="color: var(--subtle); margin-bottom: 20px;">
@@ -124,114 +124,114 @@
     <a href="juego.html" class="btn">Jugar ahora</a>
 </section>
 
-<!-- ==========  FOOTER  ========== -->
+<!-- ==========  FOOTER  ========== -->
 <footer>
     &copy; 2025 SENATI - Desarrollo Humano - Diego Díaz
 </footer>
 
-<!-- ==========  JAVASCRIPT  ========== -->
+<!-- ==========  JAVASCRIPT  ========== -->
 <script>
-// Funciones del carrusel y el botón "Descubre tu propósito"
-let pos = 0;
-const track = document.getElementById('track');
-const total = track.children.length;
+    // Funciones del carrusel y el botón "Descubre tu propósito"
+    let pos = 0;
+    const track = document.getElementById('track');
+    const total = track.children.length;
 
-function mover(direccion) {
-    pos += direccion;
-    if (pos < 0) pos = total - 1;
-    if (pos >= total) pos = 0;
-    track.style.transform = `translateX(-${pos * 100}%)`;
-}
+    function mover(direccion) {
+        pos += direccion;
+        if (pos < 0) pos = total - 1;
+        if (pos >= total) pos = 0;
+        track.style.transform = `translateX(-${pos * 100}%)`;
+    }
 
-function mostrarFrase() {
-    const consejo = document.getElementById('consejo');
-    consejo.textContent = "";
-    const frases = [
-        "Tu propósito no es un destino, es una dirección.",
-        "Si ayudas a otros a ganar, tú ya ganaste.",
-        "Trabaja desde tu talento, no desde tu miedo.",
-        "El dinero sigue al impacto, no al esfuerzo.",
-        "Si pierdes la noción del tiempo haciéndolo, eso es.",
-        "La ética es tu firma en cada acción.",
-        "La ética es hacer lo correcto, incluso cuando nadie está mirando.",
-        "El trabajo con propósito transforma la rutina en pasión.",
-        "La integridad es la base de la confianza en el ámbito laboral.",
-        "Tus valores son tu brújula; sigue tu propio camino.",
-        "No estudies psicología, es bromita miss",
-        "La colaboración y el respeto son fundamentales para un buen ambiente de trabajo.",
-        "El éxito se mide no solo por lo que logras, sino por cómo llegas allí.",
-        "La ética en el trabajo fomenta relaciones duraderas y significativas.",
-        "Haz de tu trabajo un reflejo de tus principios.",
-        "Cada decisión cuenta; elige siempre el camino correcto.",
-        "La ética profesional es un compromiso contigo mismo y con los demás."
-    ];
-    const indiceAleatorio = Math.floor(Math.random() * frases.length);
-    consejo.textContent = frases[indiceAleatorio];
-}
+    function mostrarFrase() {
+        const consejo = document.getElementById('consejo');
+        consejo.textContent = "";
+        const frases = [
+            "Tu propósito no es un destino, es una dirección.",
+            "Si ayudas a otros a ganar, tú ya ganaste.",
+            "Trabaja desde tu talento, no desde tu miedo.",
+            "El dinero sigue al impacto, no al esfuerzo.",
+            "Si pierdes la noción del tiempo haciéndolo, eso es.",
+            "La ética es tu firma en cada acción.",
+            "La ética es hacer lo correcto, incluso cuando nadie está mirando.",
+            "El trabajo con propósito transforma la rutina en pasión.",
+            "La integridad es la base de la confianza en el ámbito laboral.",
+            "Tus valores son tu brújula; sigue tu propio camino.",
+            "No estudies psicología, es bromita miss",
+            "La colaboración y el respeto son fundamentales para un buen ambiente de trabajo.",
+            "El éxito se mide no solo por lo que logras, sino por cómo llegas allí.",
+            "La ética en el trabajo fomenta relaciones duraderas y significativas.",
+            "Haz de tu trabajo un reflejo de tus principios.",
+            "Cada decisión cuenta; elige siempre el camino correcto.",
+            "La ética profesional es un compromiso contigo mismo y con los demás."
+        ];
+        const indiceAleatorio = Math.floor(Math.random() * frases.length);
+        consejo.textContent = frases[indiceAleatorio];
+    }
 
-// Función para el efecto de texto "desencriptado"
-function animateDecryption(elementId, finalString) {
-    const element = document.getElementById(elementId);
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-    let iteration = 0;
-    const interval = setInterval(() => {
-        element.innerText = finalString.split("")
-            .map((char, index) => {
-                if (index < iteration) {
-                    return finalString[index];
-                }
-                return characters[Math.floor(Math.random() * characters.length)];
-            })
-            .join("");
-        if (iteration >= finalString.length) {
-            clearInterval(interval);
-        }
-        iteration += 1 / 3;
-    }, 30);
-}
-
-// Evento que se ejecuta cuando la página está completamente cargada
-document.addEventListener("DOMContentLoaded", function() {
-    // Animación de entrada para las definiciones (revela una por una)
-    const definiciones = document.querySelectorAll('.definicion');
-    definiciones.forEach((definicion, index) => {
-        setTimeout(() => {
-            definicion.style.opacity = 1;
-            definicion.style.animation = 'fadeIn 0.8s forwards';
-        }, index * 300);
-    });
-
-    // Animación de secciones al hacer scroll
-    const animatedElements = document.querySelectorAll('.slide-in-up');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+    // Función para el efecto de texto "desencriptado"
+    function animateDecryption(elementId, finalString) {
+        const element = document.getElementById(elementId);
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+        let iteration = 0;
+        const interval = setInterval(() => {
+            element.innerText = finalString.split("")
+                .map((char, index) => {
+                    if (index < iteration) {
+                        return finalString[index];
+                    }
+                    return characters[Math.floor(Math.random() * characters.length)];
+                })
+                .join("");
+            if (iteration >= finalString.length) {
+                clearInterval(interval);
             }
+            iteration += 1 / 3;
+        }, 30);
+    }
+
+    // Evento que se ejecuta cuando la página está completamente cargada
+    document.addEventListener("DOMContentLoaded", function() {
+        // Animación de entrada para las definiciones (revela una por una)
+        const definiciones = document.querySelectorAll('.definicion');
+        definiciones.forEach((definicion, index) => {
+            setTimeout(() => {
+                definicion.style.opacity = 1;
+                definicion.style.animation = 'fadeIn 0.8s forwards';
+            }, index * 300);
         });
-    }, observerOptions);
 
-    animatedElements.forEach(element => {
-        observer.observe(element);
+        // Animación de secciones al hacer scroll
+        const animatedElements = document.querySelectorAll('.slide-in-up');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Llamadas para las animaciones de desencriptado
+        animateDecryption("titulo-principal", "Ética, Trabajo y Profesión");
+        
+        setTimeout(() => {
+            animateDecryption("trabajo-proposito", "El trabajo con propósito");
+        }, 1000);
+        
+        setTimeout(() => {
+            animateDecryption("subtitulo-principal", "Descubre cómo la ética transforma tu vida profesional");
+        }, 2000);
     });
-
-    // Llamadas para las animaciones de desencriptado
-    animateDecryption("titulo-principal", "Ética, Trabajo y Profesión");
-    
-    setTimeout(() => {
-        animateDecryption("trabajo-proposito", "El trabajo con propósito");
-    }, 1000);
-    
-    setTimeout(() => {
-        animateDecryption("subtitulo-principal", "Descubre cómo la ética transforma tu vida profesional");
-    }, 2000);
-});
 </script>
 </body>
 </html>
