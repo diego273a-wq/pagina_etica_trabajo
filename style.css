@@ -1,303 +1,317 @@
 :root {
-    --bg: #000000;
-    --card-bg: #111111;
-    --gold: #d4af37;
-    --text: #ffffff;
-    --subtle: #cccccc;
+    --bg: #000000;
+    --card-bg: #111111;
+    --gold: #d4af37;
+    --text: #ffffff;
+    --subtle: #cccccc;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    margin: 0;
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* ============ ESTILOS DEL ENCABEZADO Y HERO ============ */
 header {
-    height: 100vh;
-    background-attachment: fixed;
-    background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
 }
 
 .hero {
-    position: relative;
-    z-index: 2;
-    animation: fadeIn 1.5s ease;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 80px;
+    min-height: 100vh;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--gold);
-    text-shadow: 0 0 2px var(--gold);
-    margin-bottom: 10px;
-    animation: glowing 2s infinite alternate;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 2px var(--gold);
+    margin-bottom: 10px;
+    animation: glowing 2s infinite alternate;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: var(--subtle);
+    font-size: 1.2rem;
+    color: var(--subtle);
 }
 
 /* ============ ESTILOS DEL CONTENIDO PRINCIPAL ============ */
 main {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: auto;
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
-    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* ============ ESTILOS DEL CARRUSEL ============ */
 .carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 .carousel-track {
-    display: flex;
-    transition: transform 0.6s ease;
+    display: flex;
+    transition: transform 0.6s ease;
 }
 
 .card {
-    flex: 0 0 100%;
-    background: var(--card-bg);
-    border: 1px solid var(--gold);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 0 15px var(--gold);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 15px var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px var(--gold);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--gold);
 }
 
 .hover-zone {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 30%;
-    z-index: 2;
-    cursor: pointer;
-    background: transparent;
-    transition: background 0.3s ease;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    z-index: 2;
+    cursor: pointer;
+    background: transparent;
+    transition: background 0.3s ease;
 }
 
 .hover-zone.left {
-    left: 0;
+    left: 0;
 }
 
 .hover-zone.right {
-    right: 0;
+    right: 0;
 }
 
 /* ============ ESTILOS DE DEFINICIONES Y JUEGO ============ */
 #definiciones,
 #juego {
-    background: var(--card-bg);
-    padding: 20px;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px var(--gold);
-    text-align: center;
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px var(--gold);
+    text-align: center;
 }
 
 #definiciones h2,
 #juego h2 {
-    margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .definicion {
-    margin-bottom: 20px;
-    opacity: 0; /* Comienza invisible */
+    margin-bottom: 20px;
+    opacity: 0;
 }
 
 .definicion h3 {
-    color: var(--gold);
-    margin-bottom: 10px;
+    color: var(--gold);
+    margin-bottom: 10px;
 }
 
 .definicion p {
-    color: var(--subtle);
+    color: var(--subtle);
+}
+
+#juego {
+    text-align: center;
 }
 
 /* ============ ESTILOS DE BOTONES ============ */
 .btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 24px;
-    background: transparent;
-    color: var(--gold);
-    border: 2px solid var(--gold);
-    border-radius: 25px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    font-size: 1.1rem;
 }
 
 .btn:hover {
-    background: var(--gold);
-    color: #000;
-    box-shadow: 0 0 10px var(--gold);
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 10px var(--gold);
+}
+
+.btn:active {
+    background: rgba(212, 175, 55, 0.5);
 }
 
 /* ============ ESTILOS DEL LANYARD ============ */
 .lanyard-container {
-    position: fixed;
-    top: 0;
-    right: 50px;
-    z-index: 1000;
-    width: 250px;
-    height: 450px;
-    transform: rotate(5deg);
-    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    right: 50px;
+    z-index: 1000;
+    width: 250px;
+    height: 450px;
+    transform: rotate(5deg);
+    transition: transform 0.3s ease-in-out;
 }
 
 .lanyard-container:hover {
-    animation: swing 2s ease-in-out infinite;
+    animation: swing 2s ease-in-out infinite;
 }
 
 .lanyard-strap {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 250px;
-    background: #444;
-    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 250px;
+    background: #444;
+    border-radius: 10px;
 }
 
 .lanyard-strap::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 20px;
-    background: #aaa;
-    border: 2px solid #555;
-    border-radius: 50%;
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background: #aaa;
+    border: 2px solid #555;
+    border-radius: 50%;
 }
 
 .lanyard-card {
-    position: absolute;
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 200px;
-    background: var(--card-bg);
-    border: 2px solid var(--gold);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 200px;
+    background: var(--card-bg);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
 }
 
 /* ============ PIE DE PÁGINA ============ */
 footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 0.9rem;
-    color: var(--subtle);
-    text-shadow: 0 0 5px var(--gold);
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    color: var(--subtle);
+    text-shadow: 0 0 5px var(--gold);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    margin-top: 50px;
 }
 
 /* ============ ANIMACIONES ============ */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes glowing {
-    0% { text-shadow: 0 0 2px var(--gold); }
-    50% { text-shadow: 0 0 8px var(--gold), 0 0 10px var(--gold); }
-    100% { text-shadow: 0 0 0px var(--gold); }
+    0% { text-shadow: 0 0 2px var(--gold); }
+    50% { text-shadow: 0 0 8px var(--gold), 0 0 10px var(--gold); }
+    100% { text-shadow: 0 0 0px var(--gold); }
 }
 
 @keyframes swing {
-    0% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-    100% { transform: rotate(5deg); }
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Animaciones para las secciones */
 .slide-in-up {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .slide-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============ MEDIA QUERIES (ADAPTACIÓN A MÓVILES) ============ */
 @media (max-width: 600px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-    .lanyard-container {
-        right: 10px;
-        top: 10px;
-        transform: scale(0.7) rotate(5deg);
-    }
+    .lanyard-container {
+        right: 10px;
+        top: 10px;
+        transform: scale(0.7) rotate(5deg);
+    }
 }
